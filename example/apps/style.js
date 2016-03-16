@@ -9,7 +9,7 @@ var stateImageForDevice = function(device) {
 }
 
 module.exports = function(server) {
-  ['security'].forEach(function(deviceType){
+  ['security', 'light'].forEach(function(deviceType){
     var deviceQuery = server.where({ type: deviceType});
     server.observe([deviceQuery], function(device) {
       var states = Object.keys(device._allowed);

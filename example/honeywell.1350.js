@@ -1,5 +1,10 @@
 var zetta = require('zetta');
-var HoneywellTotalConnect = require('../index');
+var HoneywellTotalConnectSoap = require('../index');
+var HoneywellTotalConnectSecurity = require('../../zetta-honeywell-total-connect-security-driver/index');
+var HoneywellTotalConnectAutomation = require('../../zetta-honeywell-total-connect-automation-driver/index');
+var HoneywellTotalConnectLight = require('../../zetta-honeywell-total-connect-light-driver/index');
+
+
 var style = require('./apps/style');
 
 var soapURL = process.env.HONEYWELL_ALARMNET_SOAP_URL;
@@ -12,6 +17,9 @@ zetta()
   .name('Honeywell TotalConnect 2.0')
   .properties({style: {colors: {primary: {hex: '#013153', decimal: {red: 1, green: 49, blue: 83}}}}})
   .use(style)
-  .use(HoneywellTotalConnect, soapURL, userName, password, applicationID, applicationVersion)
+  .use(HoneywellTotalConnectSoap, soapURL, userName, password, applicationID, applicationVersion)
+  .use(HoneywellTotalConnectSecurity)
+  .use(HoneywellTotalConnectAutomation)
+  .use(HoneywellTotalConnectLight)
   .link('http://honeywell.zettaapi.org')
   .listen(1350);
