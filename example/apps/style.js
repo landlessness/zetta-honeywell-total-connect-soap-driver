@@ -5,11 +5,22 @@ var IMAGE_URL_ROOT = 'http://www.zettaapi.org/icons/';
 var IMAGE_EXTENSION = '.png';
 
 var stateImageForDevice = function(device) {
-  return IMAGE_URL_ROOT + device.type + '-' + device.state + IMAGE_EXTENSION;
+  var typeState = device.type + '-' + device.state;
+  
+  var preferredImageFor = {
+    'security-arming': 'security-arming-stay'
+  }
+
+  var preferredImage = preferredImageFor[typeState];
+  if (typeof preferredImage !== 'undefined') {
+    typeState = preferredImage;
+  }
+
+  return IMAGE_URL_ROOT + typeState + IMAGE_EXTENSION;
 }
 
 module.exports = function(server) {
-  ['security', 'light'].forEach(function(deviceType){
+  ['security', 'light', 'camera'].forEach(function(deviceType){
     var deviceQuery = server.where({ type: deviceType});
     server.observe([deviceQuery], function(device) {
       var states = Object.keys(device._allowed);
@@ -18,19 +29,19 @@ module.exports = function(server) {
       }
       device._transitions['update-state-image'] = {
         handler: function(updatedStateImage, cb) {
-          this.style = extend(this.style, {stateImage: updatedStateImage});
+          device.style = extend(device.style, {stateImage: updatedStateImage});
           cb();
         },
         fields: [
-          {name: 'image', type: 'text'}
+          {name: 'imageURL', type: 'text'}
         ]
       };
 
-      device.call('update-state-image', stateImageForDevice(device));
       var stateStream = device.createReadStream('state');
       stateStream.on('data', function(newState) {
         device.call('update-state-image', stateImageForDevice(device));
       });
+      
     });
   });
 }
