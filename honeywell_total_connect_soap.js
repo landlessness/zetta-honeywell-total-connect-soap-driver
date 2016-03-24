@@ -25,6 +25,10 @@ HoneywellTotalConnectSoap.prototype.updateState = function(newState, cb) {
   cb();
 }
 
+HoneywellTotalConnect.prototype._isValidSession = function(sessionID) {
+  return sessionID === this._sessionID;
+}
+
 HoneywellTotalConnectSoap.prototype._getPanelMetaDataAndFullStatusByDeviceID = function(deviceID, ticks, lastSequenceNumber, cb) {
   console.log('_getStatus');
   
