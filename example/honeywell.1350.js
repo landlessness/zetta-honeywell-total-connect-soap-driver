@@ -1,9 +1,9 @@
 var zetta = require('zetta');
 var HoneywellTotalConnectSoap = require('../index');
-var HoneywellTotalConnectSecurity = require('../../zetta-honeywell-total-connect-security-driver/index');
-var HoneywellTotalConnectAutomation = require('../../zetta-honeywell-total-connect-automation-driver/index');
-var HoneywellTotalConnectLight = require('../../zetta-honeywell-total-connect-light-driver/index');
-var HoneywellTotalConnectCamera = require('../../zetta-honeywell-total-connect-camera-driver/index');
+var HoneywellTotalConnectSecurity = require('zetta-honeywell-total-connect-security-driver');
+var HoneywellTotalConnectAutomation = require('zetta-honeywell-total-connect-automation-driver');
+var HoneywellTotalConnectLight = require('zetta-honeywell-total-connect-light-driver');
+var HoneywellTotalConnectCamera = require('zetta-honeywell-total-connect-camera-driver');
 
 
 var style = require('./apps/style');
