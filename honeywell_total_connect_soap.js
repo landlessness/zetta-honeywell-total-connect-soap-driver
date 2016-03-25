@@ -25,7 +25,7 @@ HoneywellTotalConnectSoap.prototype.updateState = function(newState, cb) {
   cb();
 }
 
-HoneywellTotalConnect.prototype._isValidSession = function(sessionID) {
+HoneywellTotalConnectSoap.prototype._isValidSession = function(sessionID) {
   return sessionID === this._sessionID;
 }
 

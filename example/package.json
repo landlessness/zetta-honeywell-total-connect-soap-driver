@@ -11,10 +11,10 @@
   "license": "MIT",
   "dependencies": {
     "node.extend": "^1.1.5",
-    "zetta-honeywell-total-connect-security-driver": "~0.0.1",
-    "zetta-honeywell-total-connect-automation-driver": "~0.0.1",
-    "zetta-honeywell-total-connect-light-driver": "~0.0.1",
-    "zetta-honeywell-total-connect-camera-driver": "~0.0.1",
+    "zetta-honeywell-total-connect-security-driver": "~0.0.3",
+    "zetta-honeywell-total-connect-automation-driver": "~0.0.3",
+    "zetta-honeywell-total-connect-light-driver": "~0.0.3",
+    "zetta-honeywell-total-connect-camera-driver": "~0.0.2",
     "zetta": "~1.0.0-beta.6"
   }
 }

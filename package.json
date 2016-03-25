@@ -1,6 +1,6 @@
 {
   "name": "zetta-honeywell-total-connect-soap-driver",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Zetta driver for the Honeywell Total Connect SOAP API",
   "main": "index.js",
   "scripts": {
