@@ -18,8 +18,10 @@ zetta()
   .name('Honeywell TotalConnect 2.0')
   .properties({ style: 
     { 
-      backgroundColor: {hex: '#013153', decimal: {red: 1, green: 49, blue: 83}},
-      foregroundColor: {hex: '#ffffff', decimal: {red: 255, green: 255, blue: 255}}
+      properties: {
+        backgroundColor: {hex: '#013153', decimal: {red: 1, green: 49, blue: 83}},
+        foregroundColor: {hex: '#ffffff', decimal: {red: 255, green: 255, blue: 255}}
+      }
     }})
   .use(style)
   .use(HoneywellTotalConnectSoap, soapURL, userName, password, applicationID, applicationVersion)
