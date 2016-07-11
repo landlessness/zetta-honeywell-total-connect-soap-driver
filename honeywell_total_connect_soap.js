@@ -30,7 +30,6 @@ HoneywellTotalConnectSoap.prototype._isValidSession = function(sessionID) {
 }
 
 HoneywellTotalConnectSoap.prototype._getPanelMetaDataAndFullStatusByDeviceID = function(deviceID, ticks, lastSequenceNumber, cb) {
-  console.log('_getStatus');
   
   // TODO: find source of PartitionID
   var self = this;
@@ -44,7 +43,6 @@ HoneywellTotalConnectSoap.prototype._getPanelMetaDataAndFullStatusByDeviceID = f
 }
 
 HoneywellTotalConnectSoap.prototype._getPanelFullStatusByDeviceID = function(deviceID, ticks, lastSequenceNumber, cb) {
-  console.log('_getStatus');
   
   // TODO: find source of PartitionID
   var self = this;
@@ -58,7 +56,6 @@ HoneywellTotalConnectSoap.prototype._getPanelFullStatusByDeviceID = function(dev
 }
 
 HoneywellTotalConnectSoap.prototype._getAutomationDeviceStatusEx = function(deviceID, cb) {
-  console.log('_getStatus');
   
   // TODO: find source of PartitionID
   var self = this;

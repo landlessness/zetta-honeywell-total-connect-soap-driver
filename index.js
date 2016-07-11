@@ -45,7 +45,6 @@ HoneywellTotalConnectSoapScout.prototype.authenticateUser = function(client, nex
     ApplicationVersion: this.applicationVersion
   }, function(err, result, raw, soapHeader){
     // TODO: handle err
-    console.log('authenticateUser: ' + util.inspect(result));
     if (result.AuthenticateUserLoginExResult.ResultCode >=0) {
       self.getSessionDetails(result.AuthenticateUserLoginExResult.SessionID, client, next);
     } else {
@@ -62,9 +61,7 @@ HoneywellTotalConnectSoapScout.prototype.getSessionDetails = function(sessionID,
     ApplicationID: this.applicationID,
     ApplicationVersion: this.applicationVersion
   }, function(err, result, raw, soapHeader) {
-    console.log('GetSessionDetails: ' + util.inspect(result))
     var resultCode = result.GetSessionDetailsResult.ResultCode;
-    console.log('GetSessionDetails resultCode: ' + resultCode);
     if (resultCode == 0) {
       // success
       var deviceLocations = result.GetSessionDetailsResult.Locations.LocationInfoBasic;

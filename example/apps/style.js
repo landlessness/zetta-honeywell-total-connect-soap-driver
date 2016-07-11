@@ -8,6 +8,29 @@ var stateImageForDevice = function(device) {
   return IMAGE_URL_ROOT + device.type + '-' + device.state + IMAGE_EXTENSION;
 }
 
+var applyImageStyle = function(device) {
+  switch (device.type) {
+  case 'security':
+    var foregroundColor = null;
+    switch (device.state) {
+    case 'disarmed':
+    case 'disarming':
+      foregroundColor = {hex: '#48A70C', decimal: {red: 72, green: 167, blue: 12}};
+      break;
+    case 'arming-stay':
+    case 'armed-stay':
+    case 'armed-away':
+    case 'arming-away':
+      foregroundColor = {hex: '#AD231B', decimal: {red: 173, green: 35, blue: 27}};
+      break;
+    default:
+    }
+    device.style.properties.stateImage.foregroundColor = foregroundColor;
+    break;
+  default:
+  }
+}
+
 module.exports = function(server) {
   console.log('util.inspect(server): ' + util.inspect(server));
 
@@ -22,6 +45,7 @@ module.exports = function(server) {
         handler: function(updatedStateImage, cb) {
           device.style = extend(device.style, {});
           device.style.properties = extend(true, device.style.properties, {stateImage: {url: updatedStateImage}});
+          applyImageStyle(device);
           cb();
         },
         fields: [
